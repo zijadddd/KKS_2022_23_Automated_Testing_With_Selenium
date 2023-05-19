@@ -2,7 +2,7 @@ namespace KKS_2022_23_Automated_Testing_With_Selenium {
     public class Tests {
         public class AuthenticationTests {
             private readonly IWebDriver webDriver;
-            private readonly String webPage = "https://youtube.com/";
+            private readonly String url = "https://youtube.com/";
 
             public AuthenticationTests() {
                 ChromeOptions options = new ChromeOptions();
@@ -14,7 +14,7 @@ namespace KKS_2022_23_Automated_Testing_With_Selenium {
 
             [SetUp]
             public void Setup() {
-                webDriver.Url = webPage;
+                webDriver.Url = url;
             }
 
             [TearDown]
