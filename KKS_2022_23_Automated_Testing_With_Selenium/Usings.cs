@@ -5,3 +5,5 @@ global using OpenQA.Selenium.Chrome;
 global using WebDriverManager;
 global using WebDriverManager.DriverConfigs.Impl;
 global using OpenQA.Selenium.Support.UI;
+global using Newtonsoft.Json;
+global using System.IO;
