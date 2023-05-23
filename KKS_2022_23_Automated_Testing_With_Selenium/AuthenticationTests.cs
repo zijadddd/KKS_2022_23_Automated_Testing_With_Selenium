@@ -20,7 +20,7 @@ namespace KKS_2022_23_Automated_Testing_With_Selenium {
 
             [TearDown]
             public void Teardown() {
-                Thread.Sleep(15000);
+                Thread.Sleep(5000);
                 webDriver.Close();
                 webDriver.Quit();
             }
@@ -52,6 +52,34 @@ namespace KKS_2022_23_Automated_Testing_With_Selenium {
                 new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(driver => driver.FindElement(By.CssSelector("[title='Create an Account']")).Displayed);
                 new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(driver => driver.FindElement(By.CssSelector("[title='Create an Account']")).Enabled);
                 webDriver.FindElement(By.CssSelector("[title='Create an Account']")).Click();
+            }
+
+            [Test]
+            public void TestCase2() {
+                StaticMethods.Login(webDriver, "nekiakount1@gmail.com", "KKStestaplikacije123");
+                Thread.Sleep(5000);
+                Assert.That(StaticMethods.CheckIfElementExistsByClassName(webDriver, "logged-in"), Is.True);
+            }
+
+            [Test]
+            public void TestCase3() {
+                StaticMethods.Login(webDriver, "izmisljeniakount1@outlook.com", "KKStestaplikacije123");
+                Thread.Sleep(5000);
+                Assert.That(StaticMethods.CheckIfElementExistsByRole(webDriver, "alert"), Is.True);
+            }
+
+            [Test]
+            public void TestCase4() {
+                StaticMethods.Login(webDriver, "nekiakount1@gmail.com", "KKStestaplikacije1234");
+                Thread.Sleep(5000);
+                Assert.That(StaticMethods.CheckIfElementExistsByRole(webDriver, "alert"), Is.True);
+            }
+
+            [Test]
+            public void TestCase5() {
+                StaticMethods.Login(webDriver, "izmisljeniakount1@outlook.com", "KKStestaplikacije1234");
+                Thread.Sleep(5000);
+                Assert.That(StaticMethods.CheckIfElementExistsByRole(webDriver, "alert"), Is.True);
             }
         }
     }
