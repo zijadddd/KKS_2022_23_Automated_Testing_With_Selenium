@@ -21,9 +21,18 @@ namespace KKS_2022_23_Automated_Testing_With_Selenium.Helpers {
             }
         }
 
-        public static bool CheckIfElementExistsByRole(IWebDriver webDriver, string elementRole) {
+        public static bool CheckIfElementExistsByRoleAlert(IWebDriver webDriver) {
             try {
                 webDriver.FindElement(By.CssSelector("[role='alert']"));
+                return true;
+            } catch (NoSuchElementException) {
+                return false;
+            }
+        }
+
+        public static bool CheckIfElementExistsByLinkText(IWebDriver webDriver, string elementText) {
+            try {
+                webDriver.FindElement(By.LinkText(elementText));
                 return true;
             } catch (NoSuchElementException) {
                 return false;
